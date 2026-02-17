@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+data/warehouse.duckdb
+artifacts/models/*
+!artifacts/models/.gitkeep
+artifacts/reports/*
+!artifacts/reports/.gitkeep

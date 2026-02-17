@@ -1,0 +1,36 @@
+data:
+  db_path: data/warehouse.duckdb
+  input_csv: data/online_retail_sample.csv
+  observation_days: 90
+  gap_days: 14
+  prediction_days: 30
+rolling:
+  enabled: true
+  step_days: 30
+models:
+  churn:
+    xgb_params:
+      n_estimators: 150
+      max_depth: 4
+      learning_rate: 0.05
+      subsample: 0.9
+      colsample_bytree: 0.9
+      random_state: 42
+      eval_metric: logloss
+    calibrate: true
+  revenue:
+    spend_logreg:
+      C: 1.0
+      max_iter: 300
+      random_state: 42
+    revenue_reg:
+      max_depth: 6
+      learning_rate: 0.06
+      random_state: 42
+decisioning:
+  default_budget_eur: 500.0
+  default_cost_per_customer: 1.0
+  default_max_customers: 2000
+  default_save_rate: 0.15
+  default_w_loss: 0.7
+  default_w_clv: 0.3
