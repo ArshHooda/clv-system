@@ -1,0 +1,16 @@
+data:
+  observation_days: 180
+  gap_days: 14
+  prediction_days: 90
+
+cleaning:
+  remove_missing_customer: true
+
+model:
+  random_state: 42
+  test_size: 0.2
+
+rolling:
+  enabled: true
+  step_days: 30
+  min_cutoffs: 3
